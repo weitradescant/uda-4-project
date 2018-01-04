@@ -17,12 +17,19 @@ function makeGrid() {
 }
 
 function makeColor() {
-	/**/
+	let color = $('#colorPicker').val();
+	$(this).toggleClass('newColor');
+	if ($(this).hasClass('newColor')) {
+		$(this).css('background-color',color);
+	} else {
+		$(this).css('background-color','');
+	}
 }
 
 function reset() {
-	/**/
+	$('td').css('background-color','');
 }
 
 $('#input_width,#input_height').on('change',makeGrid);
+$('table').on('click','td',makeColor);
 $('#input_reset').click(reset);
